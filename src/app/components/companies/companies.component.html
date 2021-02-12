@@ -1,0 +1,21 @@
+<div class="d-flex flex-row">
+    <div>
+        <company-list [list]="companyList"
+                      (selectedItem)="setSelectItem($event)"
+                      (addItem)="addNewCompany()">
+        </company-list>
+    </div>
+    <div>
+        <company [company]="selectedCompany"
+                 [companyEvents]="selectedCompanyEvents"
+                 [isEditMode]="isEditMode"
+                 [isAddMode]="isAddMode"
+                 (deleteItem)="deleteCompany($event)"
+                 (addItem)="addCompany($event)"
+                 (editItem)="editCompany($event)">
+        </company>
+    </div>
+</div>
+
+
+

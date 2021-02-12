@@ -1,0 +1,21 @@
+<div class="d-flex flex-row">
+    <div>
+        <student-list [list]="studentList"
+                      (selectedItem)="setSelectItem($event)"
+                      (addItem)="addNewStudent()">
+        </student-list>
+    </div>
+    <div>
+        <student [student]="selectedStudent"
+                 [studentEvents]="selectedStudentEvents"
+                 [isEditMode]="isEditMode"
+                 [isAddMode]="isAddMode"
+                 (deleteItem)="deleteStudent($event)"
+                 (addItem)="addStudent($event)"
+                 (editItem)="editStudent($event)">
+        </student>
+    </div>
+</div>
+
+
+

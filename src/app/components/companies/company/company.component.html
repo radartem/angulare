@@ -1,0 +1,43 @@
+<div  *ngIf="!isAddMode && !isEditMode && company">
+    <div class="d-flex flex-column">
+        <button (click)="delete()">delete</button>
+        <button (click)="edit()">edit</button>
+        <div class="d-flex justify-content-between">
+            <span>Название: </span>
+            <b>{{company.name}}</b>    
+        </div>
+    </div>
+    <div *ngIf="companyEvents" class="event-container">
+        <div *ngFor="let item of companyEvents">
+            <div class="student-event">
+                <span>{{item.date}}</span>
+                <span *ngIf="item.student">{{item.student.name}}</span>
+                <span *ngIf="!item.student">Some student</span>
+                <span>{{item.text}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isEditMode && !isAddMode">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between">
+            <span>Название: </span>
+            <input type="text" [(ngModel)]="model.name">
+        </div>
+        <button (click)="cancelEdit()">Cansel</button>
+        <button (click)="saveEdit()">Save</button>
+    </div>
+</div>
+<div *ngIf="isAddMode && !isEditMode">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between">
+            <span>Название: </span>
+            <input type="text" [(ngModel)]="model.name">
+        </div>
+        <button (click)="cancelAdd()">Cansel</button>
+        <button (click)="saveAdd()">Save</button>
+    </div>
+</div>
+
+
+

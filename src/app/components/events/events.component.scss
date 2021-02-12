@@ -1,0 +1,16 @@
+div.event-item{
+    background-color: beige;
+    width: 400px;
+    margin-bottom: 10px;
+
+    span{
+        padding-left: 5px;
+    }
+    span:hover{ 
+        background-color: gray;
+    }
+}
+
+div.event-item:hover{ 
+    background-color: aqua;
+}

@@ -1,0 +1,75 @@
+<div  *ngIf="!isAddMode && !isEditMode && student">
+    <div class="d-flex flex-column">
+        <button (click)="delete()">delete</button>
+        <button (click)="edit()">edit</button>
+        <div class="d-flex justify-content-between">
+            <span>ФИО: </span>
+            <b>{{student.name}}</b>    
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Специальность: </span>
+            <b>{{student.spec}}</b>  
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Год поступления: </span>
+            <b>{{student.syear}}</b>  
+        </div>
+    </div>
+    <div *ngIf="studentEvents" class="event-container">
+        <div *ngFor="let item of studentEvents">
+            <div class="student-event">
+                <span>{{item.date}}</span>
+                <span *ngIf="item.company">{{item.company.name}}</span>
+                <span *ngIf="!item.company">Some company</span>
+                <span>{{item.text}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isEditMode && !isAddMode">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between">
+            <span>ФИО: </span>
+            <input type="text" [(ngModel)]="model.name">
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Специальность: </span>
+            <select [(ngModel)]="model.spec">
+                <option *ngFor="let spec of specs">
+                    {{spec}}
+                </option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Год поступления: </span>
+            <input type="number" [(ngModel)]="model.syear">  
+        </div>
+        <button (click)="cancelEdit()">Cansel</button>
+        <button (click)="saveEdit()">Save</button>
+    </div>
+</div>
+<div *ngIf="isAddMode && !isEditMode">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between">
+            <span>ФИО: </span>
+            <input type="text" [(ngModel)]="model.name">
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Специальность: </span>
+            <select [(ngModel)]="model.spec">
+                <option *ngFor="let spec of specs" >
+                    {{spec}}
+                </option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Год поступления: </span>
+            <input type="number" [(ngModel)]="model.syear">  
+        </div>
+        <button (click)="cancelAdd()">Cansel</button>
+        <button (click)="saveAdd()">Save</button>
+    </div>
+</div>
+
+
+

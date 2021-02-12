@@ -1,0 +1,8 @@
+<div>
+    <button (click)="addItemToList()">Add Item</button>
+</div>
+<div *ngFor="let item of list">
+    <div (click)="selectItem(item)" class="student-item">
+            {{item.name}} 
+    </div>
+</div>

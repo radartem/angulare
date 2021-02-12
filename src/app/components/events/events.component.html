@@ -1,0 +1,11 @@
+<button (click)="sort()">sort</button>
+<div *ngFor="let item of list">
+    <div class="event-item">
+        <span>{{item.date}}</span>
+        <span *ngIf="item.company">{{item.company.name}}</span>
+        <span *ngIf="!item.company">some company</span>
+        <span *ngIf="item.student">{{item.student.name}}</span>
+        <span *ngIf="!item.student">some student</span>
+        <span>{{item.text}}</span>
+    </div>
+</div>

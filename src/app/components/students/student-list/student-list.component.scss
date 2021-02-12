@@ -1,0 +1,11 @@
+div.student-item{
+    cursor: pointer;
+    background-color: beige;
+    height: 20px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+div.student-item:hover{ 
+    background-color: aqua;
+}
